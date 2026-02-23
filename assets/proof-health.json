@@ -1,0 +1,8 @@
+{
+	"status": "ok",
+	"version": "0.9.0",
+	"engine": "UnrealEngine",
+	"port": 30010,
+	"routes": 53,
+	"api_key_required": false
+}
