@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>NovaBridge | Nova_Ai</title>
-    <meta name="description" content="NovaBridge is an AI automation bridge for Unreal Engine workflows." />
+    <meta name="description" content="NovaBridge is a full HTTP control bridge for Unreal Editor with Blender pipeline, PCG, Sequencer, streaming, optimization, and AI-agent integrations." />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -28,43 +28,126 @@
       <section class="hero container">
         <p class="kicker">Live Product</p>
         <h1>NovaBridge<br />AI Automation Bridge for Unreal Engine</h1>
-        <p class="lead">HTTP-based control layer for Unreal Editor automation and AI integration.</p>
+        <p class="lead">A production API layer that gives AI agents full programmatic control of Unreal Editor workflows.</p>
         <div class="actions">
           <a class="btn primary" href="contact.html">Buy Now / Checkout Request</a>
           <a class="btn secondary" href="demo.html">Watch Demo</a>
+          <a class="btn secondary" href="pricing.html">Pricing</a>
         </div>
       </section>
 
       <section class="container section">
-        <h2>Capabilities</h2>
+        <h2>What Makes NovaBridge Unique</h2>
         <div class="grid two-col">
-          <article class="card"><h3>Spawn actors via HTTP</h3><p>Create scene objects using clean endpoint calls.</p></article>
-          <article class="card"><h3>Scene automation</h3><p>Drive iterative workflows from tools, scripts, or agents.</p></article>
-          <article class="card"><h3>Viewport screenshot capture</h3><p>Capture output frames for previews, QA, and automation loops.</p></article>
-          <article class="card"><h3>Localhost secure binding</h3><p>Default local-only binding for safe editor-side control.</p></article>
-          <article class="card"><h3>Optional API key support</h3><p>Harden local interfaces for controlled team usage.</p></article>
+          <article class="card">
+            <h3>Deep Unreal Editor Control</h3>
+            <p>Health checks, scene CRUD, transforms, set-property, asset workflows, materials, mesh generation, blueprint actions, and command execution.</p>
+          </article>
+          <article class="card">
+            <h3>Blender-to-UE Pipeline</h3>
+            <p>Integrated Blender bridge with import scaling (`scale=100` default for OBJ), configurable Blender path, and end-to-end AI-assisted asset transfer.</p>
+          </article>
+          <article class="card">
+            <h3>Cinematic + Procedural Tooling</h3>
+            <p>Sequencer create/track/keyframe/play/scrub/render plus PCG graph listing, volume creation, generation, params, and cleanup.</p>
+          </article>
+          <article class="card">
+            <h3>Live View + Camera Control</h3>
+            <p>Viewport screenshot (including raw PNG output), camera get/set with show flags, and stream controls with status + WebSocket URL.</p>
+          </article>
+          <article class="card">
+            <h3>Optimization Endpoints</h3>
+            <p>Nanite, LOD, Lumen, textures, collision optimization routes and runtime optimize stats for practical pipeline hardening.</p>
+          </article>
+          <article class="card">
+            <h3>AI-Native Integrations</h3>
+            <p>Python SDK, MCP server support, OpenClaw extensions, and scriptable curl-first workflows for agent-driven scene building.</p>
+          </article>
         </div>
       </section>
 
       <section class="container section">
-        <h2>Architecture</h2>
+        <h2>Complete Feature Set (v0.9)</h2>
+        <div class="grid three-col">
+          <article class="card">
+            <h3>System + Scene</h3>
+            <ul class="feature-list">
+              <li><code>GET /nova/health</code>, <code>GET /nova/project/info</code></li>
+              <li>Scene list, spawn, delete, transform, get, set-property</li>
+              <li>Spawn safety limit (100 spawns/min)</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Assets + Materials + Mesh</h3>
+            <ul class="feature-list">
+              <li>Asset list/create/duplicate/delete/rename/info/import</li>
+              <li>Import supports OBJ and FBX (OBJ scale normalization)</li>
+              <li>Mesh create/get/primitive and material create/set/get/instance</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Viewport + Stream</h3>
+            <ul class="feature-list">
+              <li>Screenshot capture with <code>format=raw</code> PNG</li>
+              <li>Camera set/get (<code>location</code>, <code>rotation</code>, <code>fov</code>, <code>show_flags</code>)</li>
+              <li>Stream start/stop/config/status with WS URL</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>PCG + Sequencer</h3>
+            <ul class="feature-list">
+              <li>PCG list graphs, create volume, generate, set param, cleanup</li>
+              <li>Sequencer create, add-track, set-keyframe, play, stop, scrub</li>
+              <li>Render image sequences + info endpoint</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Blueprint + Build + Exec</h3>
+            <ul class="feature-list">
+              <li>Blueprint create, add component, compile</li>
+              <li>Build lighting endpoint</li>
+              <li>Exec command endpoint for controlled editor console actions</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Optimize Suite</h3>
+            <ul class="feature-list">
+              <li>Optimize Nanite, LOD, Lumen, textures, collision</li>
+              <li>Runtime optimize stats endpoint</li>
+              <li>Practical for large-scene cleanup and iteration passes</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="container section">
+        <h2>Blender and DCC Workflow</h2>
+        <article class="card">
+          <p><strong>Pipeline:</strong> AI Agent → Blender scripts/extensions → OBJ/FBX export → <code>/nova/asset/import</code> → UE5 placement and automation.</p>
+          <p>NovaBridge supports configurable Blender integration via environment variables (path, export/output dirs, host/port, import scale, optional API key) for macOS, Windows, and Linux workflows.</p>
+          <p>This is a key differentiator for teams that want autonomous content generation plus direct in-editor orchestration.</p>
+        </article>
+      </section>
+
+      <section class="container section">
+        <h2>Architecture + Security</h2>
         <article class="card">
           <p><strong>Flow:</strong> AI → HTTP → Unreal Editor</p>
           <p><strong>Default binding:</strong> 127.0.0.1:30010</p>
-          <p><strong>Core endpoints:</strong></p>
-          <ul class="endpoint-list">
-            <li><code>GET /nova/health</code></li>
-            <li><code>POST /nova/scene/spawn</code></li>
-            <li><code>POST /nova/scene/delete</code></li>
-          </ul>
+          <p><strong>Port override:</strong> <code>-NovaBridgePort=&lt;port&gt;</code></p>
+          <p><strong>Optional auth:</strong> API key via <code>NOVABRIDGE_API_KEY</code> or <code>-NovaBridgeApiKey</code> with <code>X-API-Key</code> / Bearer header.</p>
+          <p><strong>CORS:</strong> included on responses for tooling/UI interoperability.</p>
         </article>
       </section>
 
       <section class="container section cta">
-        <h2>Pricing & Fulfillment</h2>
-        <p class="muted">NovaBridge is sold as a digital software product with instant fulfillment after successful checkout.</p>
+        <h2>Validation Evidence + Docs</h2>
+        <p class="muted">NovaBridge has live build/smoke validation evidence on macOS and Windows, including health/spawn/delete/import/screenshot checks.</p>
         <div class="link-row">
-          <a href="pricing.html">Pricing Breakdown</a>
+          <a href="demo.html">Demo Video</a>
+          <a href="https://github.com/maddwiz/novabridge/blob/main/docs/API.md" target="_blank" rel="noopener">API Reference</a>
+          <a href="https://github.com/maddwiz/novabridge/blob/main/docs/AI_CONTROL_PROOF.md" target="_blank" rel="noopener">Control Proof</a>
+          <a href="https://github.com/maddwiz/novabridge/blob/main/docs/BUILD_STATUS.md" target="_blank" rel="noopener">Build Status</a>
           <a href="terms.html">Terms of Service</a>
           <a href="refunds.html">Refund Policy</a>
         </div>

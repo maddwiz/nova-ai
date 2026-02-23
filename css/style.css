@@ -180,6 +180,10 @@ h3 {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
+.grid.three-col {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .card {
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -262,8 +266,23 @@ h3 {
   padding-left: 18px;
 }
 
+.feature-list {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+
+.feature-list li + li {
+  margin-top: 8px;
+}
+
 .endpoint-list code {
   font-size: 14px;
+  color: #d5e2ff;
+}
+
+.feature-list code {
+  font-size: 13px;
   color: #d5e2ff;
 }
 
