@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>NovaBridge | Nova_Ai</title>
+    <meta name="description" content="NovaBridge is an AI automation bridge for Unreal Engine workflows." />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container nav">
+        <a class="brand" href="index.html" aria-label="Nova_Ai home">
+          <img src="assets/logo.svg" alt="Nova_Ai logo" />
+          <span>Nova_Ai</span>
+        </a>
+        <nav aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="novabridge.html" class="active">NovaBridge</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <p class="kicker">Live Product</p>
+        <h1>NovaBridge<br />AI Automation Bridge for Unreal Engine</h1>
+        <p class="lead">HTTP-based control layer for Unreal Editor automation and AI integration.</p>
+        <div class="actions">
+          <a class="btn primary" href="https://your-checkout-link-here" target="_blank" rel="noopener">Buy Now</a>
+        </div>
+      </section>
+
+      <section class="container section">
+        <h2>Capabilities</h2>
+        <div class="grid two-col">
+          <article class="card"><h3>Spawn actors via HTTP</h3><p>Create scene objects using clean endpoint calls.</p></article>
+          <article class="card"><h3>Scene automation</h3><p>Drive iterative workflows from tools, scripts, or agents.</p></article>
+          <article class="card"><h3>Viewport screenshot capture</h3><p>Capture output frames for previews, QA, and automation loops.</p></article>
+          <article class="card"><h3>Localhost secure binding</h3><p>Default local-only binding for safe editor-side control.</p></article>
+          <article class="card"><h3>Optional API key support</h3><p>Harden local interfaces for controlled team usage.</p></article>
+        </div>
+      </section>
+
+      <section class="container section">
+        <h2>Architecture</h2>
+        <article class="card">
+          <p><strong>Flow:</strong> AI → HTTP → Unreal Editor</p>
+          <p><strong>Default binding:</strong> 127.0.0.1:30010</p>
+          <p><strong>Core endpoints:</strong></p>
+          <ul class="endpoint-list">
+            <li><code>GET /nova/health</code></li>
+            <li><code>POST /nova/scene/spawn</code></li>
+            <li><code>POST /nova/scene/delete</code></li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <p>Nova_Ai © 2026</p>
+      <p>Created by Desmond Pottle</p>
+    </footer>
+  </body>
+</html>
