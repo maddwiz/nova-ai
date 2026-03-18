@@ -45,9 +45,15 @@
     const plan = button.getAttribute("data-buy-plan") || config.defaultPlan;
     const source = button.getAttribute("data-buy-source") || "nova-ai";
     const fallbackHref = button.getAttribute("href") || "contact.html";
-    const href = buildCommerceUrl(plan, source) || buildDirectCheckoutUrl(plan, source) || fallbackHref;
+    const directHref = buildDirectCheckoutUrl(plan, source);
+    const commerceHref = buildCommerceUrl(plan, source);
+    const href =
+      (config.useLemonOverlay && directHref ? directHref : "") ||
+      commerceHref ||
+      directHref ||
+      fallbackHref;
     button.setAttribute("href", href);
-    if (!commerceBase && checkoutUrl && config.useLemonOverlay) {
+    if (checkoutUrl && config.useLemonOverlay) {
       button.classList.add("lemonsqueezy-button");
     }
   }
