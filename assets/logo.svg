@@ -1,11 +1,28 @@
-<svg width="220" height="56" viewBox="0 0 220 56" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Nova_Ai logo">
+<svg width="240" height="240" viewBox="0 0 240 240" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="novaGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#6C5CE7" />
-      <stop offset="1" stop-color="#3B82F6" />
+    <radialGradient id="bg" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(120 120) rotate(90) scale(110)">
+      <stop stop-color="#151233"/>
+      <stop offset="1" stop-color="#050811"/>
+    </radialGradient>
+    <linearGradient id="ring" x1="28" y1="52" x2="212" y2="188" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#57D2FF"/>
+      <stop offset="0.4" stop-color="#8E64FF"/>
+      <stop offset="0.75" stop-color="#F246D5"/>
+      <stop offset="1" stop-color="#FF9AE8"/>
     </linearGradient>
+    <filter id="glow" x="0" y="0" width="240" height="240" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feGaussianBlur stdDeviation="7.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
-  <rect x="2" y="2" width="52" height="52" rx="14" fill="url(#novaGrad)" />
-  <path d="M16 38V18h6l10 13V18h6v20h-5L22 25v13h-6z" fill="#E6EAF2"/>
-  <text x="68" y="36" font-family="Inter, Sora, Space Grotesk, sans-serif" font-size="28" font-weight="700" fill="#E6EAF2">Nova_Ai</text>
+  <circle cx="120" cy="120" r="84" fill="url(#bg)"/>
+  <g filter="url(#glow)" opacity="0.95">
+    <ellipse cx="120" cy="120" rx="84" ry="44" transform="rotate(17 120 120)" stroke="url(#ring)" stroke-width="9"/>
+    <ellipse cx="120" cy="120" rx="84" ry="44" transform="rotate(-18 120 120)" stroke="url(#ring)" stroke-width="7" opacity="0.88"/>
+  </g>
+  <circle cx="120" cy="120" r="53" fill="#080C17"/>
+  <text x="120" y="128" text-anchor="middle" fill="#F5EAFE" font-family="Georgia, 'Times New Roman', serif" font-size="27" letter-spacing="1.6">Nova_Ai</text>
 </svg>
