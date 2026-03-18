@@ -6,6 +6,9 @@ Static multi-page website for Nova_Ai, built with plain HTML + CSS and deployed 
 
 - `index.html` - Homepage (company positioning + product grid)
 - `novabridge.html` - Live product page for NovaBridge
+- `novaspine-openclaw.html` - Live product page for NovaSpine / OpenClaw Pro
+- `js/storefront-config.js` - storefront checkout config
+- `js/storefront.js` - static Lemon Squeezy / commerce button wiring
 - `css/style.css` - Dark modern styling and responsive layout
 - `assets/logo.svg` - Nova_Ai logo
 
@@ -32,10 +35,24 @@ python3 -m http.server 8080
 
 Then open `http://localhost:8080`.
 
-## Final Step Before Sales
+## Lemon Squeezy Setup
 
-Update the Buy Now link in `novabridge.html`:
+Edit `js/storefront-config.js`:
 
-- `https://your-checkout-link-here`
+- `commerceBaseUrl`
+- `proCheckoutUrl`
 
-Replace it with your real Lemon Squeezy checkout URL.
+Recommended:
+
+1. Set `commerceBaseUrl` to your deployed Pro commerce service if you want the backend to own redirects and attribution.
+2. Or set `proCheckoutUrl` directly to your Lemon Squeezy checkout/share URL if you want a pure static Pages flow.
+3. In Lemon Squeezy, set success and cancel URLs to:
+   - `/success.html`
+   - `/cancel.html`
+
+The storefront script appends static attribution/custom checkout fields for:
+
+- product
+- plan
+- source
+- page/referrer
