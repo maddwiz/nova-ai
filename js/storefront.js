@@ -20,13 +20,9 @@
     if (!checkoutUrl) {
       return "";
     }
-    const url = new URL(checkoutUrl);
-    url.searchParams.set("checkout[custom][plan]", plan);
-    url.searchParams.set("checkout[custom][tier]", config.tier);
-    url.searchParams.set("checkout[custom][source]", source);
-    url.searchParams.set("checkout[custom][product]", config.productCode);
-    url.searchParams.set("checkout[custom][ref]", currentRef);
-    return url.toString();
+    // Hosted Lemon Squeezy share URLs break when we append custom checkout
+    // query params here. Use the canonical share URL directly.
+    return checkoutUrl;
   }
 
   function buildCommerceUrl(plan, source) {
