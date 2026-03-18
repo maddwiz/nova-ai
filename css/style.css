@@ -208,6 +208,16 @@ h3 {
   box-shadow: 0 22px 46px rgba(9, 8, 33, 0.54);
 }
 
+.card-link {
+  display: block;
+  text-decoration: none;
+}
+
+.card-link:focus-visible {
+  outline: 2px solid rgba(88, 198, 255, 0.9);
+  outline-offset: 3px;
+}
+
 .card p {
   margin: 0;
   color: var(--muted);
