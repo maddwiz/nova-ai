@@ -3,6 +3,8 @@
     {
       commerceBaseUrl: "",
       proCheckoutUrl: "",
+      checkoutUrls: {},
+      commercePlans: ["pro_monthly"],
       useLemonOverlay: true,
       defaultPlan: "pro_monthly",
       productCode: "novaspine-openclaw-pro",
@@ -14,19 +16,36 @@
   const trimTrailingSlash = (value) => String(value || "").trim().replace(/\/+$/, "");
   const currentRef = window.location.pathname.replace(/^\//, "") || "index.html";
   const commerceBase = trimTrailingSlash(config.commerceBaseUrl);
-  const checkoutUrl = String(config.proCheckoutUrl || "").trim();
+  const configuredUrls =
+    config.checkoutUrls && typeof config.checkoutUrls === "object" ? config.checkoutUrls : {};
+
+  function checkoutUrlForPlan(plan) {
+    const explicit = String(configuredUrls[plan] || "").trim();
+    if (explicit) {
+      return explicit;
+    }
+    if (plan === config.defaultPlan) {
+      return String(config.proCheckoutUrl || "").trim();
+    }
+    return "";
+  }
 
   function buildDirectCheckoutUrl(plan, source) {
-    if (!checkoutUrl) {
+    const directUrl = checkoutUrlForPlan(plan);
+    if (!directUrl) {
       return "";
     }
     // Hosted Lemon Squeezy share URLs break when we append custom checkout
     // query params here. Use the canonical share URL directly.
-    return checkoutUrl;
+    return directUrl;
   }
 
   function buildCommerceUrl(plan, source) {
     if (!commerceBase) {
+      return "";
+    }
+    const commercePlans = Array.isArray(config.commercePlans) ? config.commercePlans : [];
+    if (!commercePlans.includes(plan)) {
       return "";
     }
     const url = new URL(`${commerceBase}/buy/pro`);
@@ -49,7 +68,7 @@
       directHref ||
       fallbackHref;
     button.setAttribute("href", href);
-    if (checkoutUrl && config.useLemonOverlay) {
+    if (directHref && config.useLemonOverlay) {
       button.classList.add("lemonsqueezy-button");
     }
   }
