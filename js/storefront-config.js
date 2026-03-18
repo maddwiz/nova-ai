@@ -1,5 +1,5 @@
 window.NovaStorefrontConfig = {
-  commerceBaseUrl: "",
+  commerceBaseUrl: "https://novaspine-openclaw-pro-commerce.onrender.com",
   proCheckoutUrl: "",
   useLemonOverlay: true,
   defaultPlan: "pro_monthly",
