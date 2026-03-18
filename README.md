@@ -10,7 +10,9 @@ Static multi-page website for Nova_Ai, built with plain HTML + CSS and deployed 
 - `js/storefront-config.js` - storefront checkout config
 - `js/storefront.js` - static Lemon Squeezy / commerce button wiring
 - `css/style.css` - Dark modern styling and responsive layout
-- `assets/logo.svg` - Nova_Ai logo
+- `assets/company-logo.jpg` - Nova_Ai company logo
+- `assets/novaspine-product.png` - NovaSpine product art
+- `assets/nemosidecar-product.png` - NemoSidecar product art
 
 ## Deploy to GitHub Pages
 
